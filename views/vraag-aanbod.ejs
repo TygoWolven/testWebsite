@@ -1,0 +1,80 @@
+<%- include('./partials/head' , {current: '/vraag-aanbod' }) %>
+
+    <main>
+        <h1 class="VAh1">Vraag & aanbod </h1>
+
+        <div class="project">
+            <label for="filter-project">FILTER</label>
+            <div>
+                <select name="projects">
+                    <option value="vraag">Vraag</option>
+                    <option value="aanbod">Aanbod</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="container">
+            <% services.forEach(function(service) { %>
+                <!-- Laat alleen de service zien als het type een vraag is -->
+                <% if (service.type=='vraag' ) { %>
+
+                    <article class="card">
+                        <a class="linkVA" href="/vraag-aanbod/<%= service.id %>">
+                            <% if (service.image) { %>
+                                <img class="imgVA" src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                                <% } %>
+
+                                    <div class="description">
+                                        <h3>
+                                            <%= service.title %>
+                                        </h3>
+                                        <p>
+                                            <span>
+                                                <%= service.start_date %> - <%= service.end_date %>
+                                            </span>
+                                        </p>
+
+                                        <p><%- service.short_description %></p>
+                                    </div>
+
+                                    <button class="btn">Meer informatie</button>
+                        </a>
+                    </article>
+
+                    <% } %>
+                        <% }) %>
+
+                            <% services.forEach(function(service) { %>
+                                <!-- Laat alleen de service zien als het type een vraag is -->
+                                <% if (service.type=='aanbod' ) { %>
+
+                                    <article class="card">
+                                        <a class="linkVA" href="/vraag-aanbod/<%= service.id %>">
+                                            <% if (service.image) { %>
+                                                <img class="imgVA"
+                                                    src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                                                <% } %>
+
+                                                    <div class="description">
+                                                        <h3>
+                                                            <%= service.title %>
+                                                        </h3>
+                                                        <p>
+                                                            <span>
+                                                                <%= service.start_date %> - <%= service.end_date %>
+                                                            </span>
+                                                        </p>
+
+                                                        <p><%- service.short_description %></p>
+                                                    </div>
+                                                    <button class="btn">Meer informatie</button>
+                                        </a>
+                                    </article>
+
+                                    <% } %>
+                                        <% }) %>
+
+        </section>
+    </main>
+
+    <%- include('./partials/foot') %>

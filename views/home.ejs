@@ -1,11 +1,9 @@
 <%- include('./partials/head' , {current: '/' }) %>
 
     <main>
-        <section>
-            <img class="homeImg" src="/Hallen voorpagina.png" alt="Voorpagina BuurtConnect">
-            <button class="homeBtnScroll">Bekijk buurtprojecten</button>
-            <h1 class="homeH">BuurtConnect: Jouw Buurt, Jouw Projecten</h1>
-            <article class="hometext">
+        <section id="homePage">
+            <h1 class="homeTitle">BuurtConnect: Jouw Buurt, Jouw Projecten</h1>
+            <article class="homeText">
                 Welkom bij BuurtConnect, het platform dat jouw buurt tot leven brengt met
                 geweldige projecten en initiatieven! Of je nu een idee hebt om je buurt groener 
                 te maken, een evenement wilt organiseren om je buren te verenigen, of gewoon op 
@@ -14,34 +12,32 @@
             </article>
         </section>
 
-        <section>
+        <section id="projectPage">
             <h2 class="homeh2">Vraag & Aanbod</h2>
-            <div class="container2">
+            <div class="cardContainer">
                 <% services.forEach(function(service) { %>
                     <!-- Laat alleen de service zien als het type een vraag is -->
                     <% if (service.type=='vraag' ) { %>
-                        <article class="card">
-                            <a class="linkVA" href="/vraag-aanbod/<%= service.id %>">
-                            
+                        <article class="cardItem">                            
                             <% if (service.image) { %>
-                                <img class="imgVA" src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
+                                <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>">
                             <% } %>
     
                             <div class="description">
-                                <h3><%= service.title %></h3>                                    
+                                <a href="/vraag-aanbod/<%= service.id %>">
+                                    <h3><%= service.title %></h3>                                    
                                 
-                                <p>
-                                    <span>
-                                        <%= service.start_date %> - <%= service.end_date %>
-                                    </span>
-                                </p>
-    
-                                <p><%- service.short_description %></p>
+                                    <p>
+                                        <span>
+                                            <%= service.start_date %> - <%= service.end_date %>
+                                        </span>
+                                    </p>
+        
+                                    <p><%- service.short_description %></p>
+                                </a>
                             </div>
     
-                            <button class="btn">Meer informatie</button>
-
-                            </a>
+                            <button class="cardButton"><a href="/vraag-aanbod/<%= service.id %>">Meer informatie</a></button>
                         </article>
                     <% } %>
                 <% }) %>

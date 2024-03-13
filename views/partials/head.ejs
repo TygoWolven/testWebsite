@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ellenoor Bok | BuurtConnect</title>
 
     <!-- link to css -->
     <link rel="stylesheet" href="/style/style.css">
@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
     <nav>
         <ul>
             <li>
@@ -33,14 +34,14 @@
                 </a>
             </li>
             <li>
+                <a href="/about" <% if (current=='/detail' ) { %> class="active"<% } %>>About us</a>
+            </li>
+            <li>
                 <a href="/vraag-aanbod" <% if (current=='/vraag-aanbod' ) { %> class="active"<% } %>
                         >Buurtprojecten</a>
             </li>
             <li>
                 <a href="/contact" <% if (current=='/detail' ) { %> class="active"<% } %>>Contact</a>
-            </li>
-            <li>
-                <a href="/about" <% if (current=='/detail' ) { %> class="active"<% } %>>About us</a>
             </li>
             <li>
                 <a href="/faq" <% if (current=='/detail' ) { %> class="active"<% } %>>FAQ</a>
